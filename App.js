@@ -1,5 +1,4 @@
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 import {
   TouchableOpacity,
   StyleSheet,
@@ -16,25 +15,23 @@ const App = () => {
       source={require('./assets/body-bg.jpg')}
       resizeMode="cover"
       style={styles.image}>
-      <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
-        colors={['#5851DB', '#C13584', '#E1306C', '#FD1D1D', '#F77737']}>
-        <View style={styles.bgApp}>
-          <View>
-            <View style={styles.viewCenter}>
-              <Image
-                style={styles.imageLogo}
-                source={require('./assets/icon-vaccine.png')}
-              />
-              <Text style={styles.sectionTitle}>MyHealth</Text>
-            </View>
-            <Text style={styles.sectionSeccondTitle}>
-              Controle as suas vacinas e fique seguro
-            </Text>
+      <View style={styles.bgApp}>
+        <View>
+          <View style={styles.viewCenter}>
+            <Image
+              style={styles.imageLogo}
+              source={require('./assets/icon-vaccine.png')}
+            />
+            <Text style={styles.sectionTitle}>MyHealth</Text>
           </View>
+          <Text style={styles.sectionSeccondTitle}>
+            Controle as suas vacinas e fique seguros
+          </Text>
+        </View>
 
-          <View style={styles.viewinputs}>
+        <View style={styles.viewinputs}>
+          <View style={styles.camposInput}>
+            <Text>E-mail</Text>
             <TextInput
               style={styles.inputEmail}
               placeholder="Email"
@@ -42,6 +39,10 @@ const App = () => {
               autoCapitalize="none"
               placeholderTextColor="#000"
             />
+          </View>
+
+          <View style={styles.camposInput}>
+            <Text>Senha</Text>
             <TextInput
               style={styles.inputPassword}
               placeholder="Senha"
@@ -50,19 +51,19 @@ const App = () => {
               autoCorrect={true}
               placeholderTextColor="#000"
             />
-            <TouchableOpacity style={styles.buttonForm}>
-              <Text style={styles.textButton}>Entrar</Text>
-            </TouchableOpacity>
           </View>
+          <TouchableOpacity style={styles.buttonForm}>
+            <Text style={styles.textButton}>Entrar</Text>
+          </TouchableOpacity>
         </View>
-      </LinearGradient>
+      </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   sectionTitle: {
-    fontSize: 64,
+    fontSize: 44,
     fontWeight: '600',
     fontFamily: 'Averia Libre',
     fontstyle: 'normal',
@@ -73,12 +74,20 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginTop: 40,
   },
+  camposInput: {
+    width: '100%',
+    height: '100%',
+    maxHeight: 100,
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
   imageLogo: {
     width: 50,
     height: 50,
     position: 'absolute',
-    top: '50%',
-    left: 30,
+    top: '40%',
+    left: 60,
   },
   viewCenter: {
     flex: 1,
@@ -86,7 +95,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     minHeight: 120,
-    minWidth: '100%',
   },
   viewinputs: {
     flex: 1,
@@ -102,6 +110,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 81,
     marginBottom: 131,
+    minHeight: 120,
   },
   textButton: {
     color: 'red',
@@ -115,7 +124,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   inputEmail: {
-    width: 250,
+    width: 300,
     maxHeight: 51,
     borderRadius: 5,
     flex: 1,
@@ -128,7 +137,7 @@ const styles = StyleSheet.create({
   inputPassword: {
     alignSelf: 'center',
     backgroundColor: 'white',
-    width: 250,
+    width: 300,
     flex: 2,
     maxHeight: 51,
     borderRadius: 5,
@@ -139,9 +148,6 @@ const styles = StyleSheet.create({
   bgApp: {
     height: '100%',
     width: '100%',
-    flex: 1,
-    alignContent: 'center',
-    justifyContent: 'center',
   },
   image: {
     flex: 1,
